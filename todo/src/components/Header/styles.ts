@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.section`
-    margin: 2rem 5rem;
+    height: 100vh;
+    margin: 3rem 3rem;
     padding: 1rem 0;
     background: white;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
 

@@ -1,15 +1,24 @@
+import { useState } from "react";
 import { 
     TaskContainer, Task, Actions, TaskName,
     CheckSquare, EditButton, DeleteButton 
 } from "./styles"
+import { TaskType } from '../../App'
 
-const tasks = [
-    { id: 1, name: "finish homework"},
-    { id: 2, name: "Read a Book"},
-    { id: 3, name: "Go for a Walk"},
-]
 
-export function List() {
+interface ListProps {
+    tasks: TaskType[];
+    setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>; 
+}
+
+export function List({ tasks, setTasks }: ListProps) {
+
+    const handleDeleteTask = (taskId: number) => {
+        // Filter out the task with the given taskId
+        const updatedTasks = tasks.filter(task => task.id !== taskId);
+        setTasks(updatedTasks);
+      };
+
     return (
         <TaskContainer>
             <h1>Tasks</h1>
@@ -21,7 +30,7 @@ export function List() {
                 <Actions>
                     <CheckSquare />
                     <EditButton />
-                    <DeleteButton />
+                    <DeleteButton onClick={() => handleDeleteTask(task.id)} />
                 </Actions>
                 </Task>
             ))}

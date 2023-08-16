@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { AiFillEdit, AiFillCheckSquare, AiFillDelete } from 'react-icons/ai'
 
 
@@ -33,12 +33,22 @@ export const Actions = styled.div`
     gap: 0.5rem;
 `
 
+const BaseIcon = css`
+   cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+`
+
 export const CheckSquare = styled(AiFillCheckSquare)`
+   ${BaseIcon}
    color: green;
 `
 export const EditButton = styled(AiFillEdit)`
+   ${BaseIcon}
    color: #F7CA18;
 `
 export const DeleteButton = styled(AiFillDelete)`
+   ${BaseIcon}
    color: red;
 `
