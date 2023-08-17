@@ -7,16 +7,11 @@ import { useState } from 'react';
 export interface TaskType {
   id: number;
   name: string;
+  completed: boolean;
 }
 
-const taskList: TaskType[] = [
-  { id: 1, name: "finish homework"},
-  { id: 2, name: "Read a Book"},
-  { id: 3, name: "Go for a Walk"},
-]
-
 function App() {
-  const [tasks, setTasks] = useState<TaskType[]>(taskList)
+  const [tasks, setTasks] = useState<TaskType[]>([])
 
   return (
     <HeaderContainer>

@@ -12,6 +12,10 @@ export const TaskContainer = styled.section`
         text-align: center;
         margin-bottom: 0.5rem;
     }
+
+    > p {
+        text-align: center;
+    }
 `
 
 export const Task = styled.div`
@@ -23,8 +27,31 @@ export const Task = styled.div`
     padding: 1rem;
 `
 
-export const TaskName = styled.div`
+export const TaskName = styled.div<{ completed: boolean }>`
     font-weight: 500;
+
+    p {
+        ${props => props.completed && css`
+        text-decoration: line-through;
+        `}
+    }
+`
+
+export const TaskEdit = styled.div`
+    width: 90%;
+    display: flex;
+    gap: 0.5rem;
+
+    input {
+        width: 100%;
+    }
+    button {
+        background-color: #48929B;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 0.25rem;
+    }
 `
 
 export const Actions = styled.div`

@@ -17,7 +17,8 @@ export function Header({ tasks, setTasks }: HeaderProps) {
         if (taskName.trim() !== '') {
             const newTask = {
                 id: tasks.length + 1,
-                name: taskName
+                name: taskName,
+                completed: false
             };
 
             setTasks([...tasks, newTask]);

@@ -44,7 +44,7 @@ export const InputForm = styled.div`
 
     input {
         border: none;
-        width: auto;
+        width: 80%;
         outline: none;
     }
 `
