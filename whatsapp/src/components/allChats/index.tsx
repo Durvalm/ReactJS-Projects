@@ -1,8 +1,21 @@
+import { useState } from "react";
+import { Chats } from "./Chats";
+import { Search } from "./Search";
 import { Section, Header, Icons, FuncIcons, Profile,
         AddIcon, ChatIcon, BulbIcon, MoreIcon
 } from "./styles";
 
+export interface ChatType {
+    id: number;
+    name: string;
+    img: string
+    message: string;
+    date: Date;
+}
+
+
 export function AllChats() {
+    // const [chats, setChats] = useState<ChatType[]>([])
     return (
         <Section>
         <Header>
@@ -18,6 +31,11 @@ export function AllChats() {
                 </FuncIcons>
             </Icons>
         </Header>
+        <Search />
+        {/* {chats.map((chat) => (
+            <Chats key={chat.id} name={chat.name}  />
+        ))} */}
+        <Chats />
         </Section>
     )
 }

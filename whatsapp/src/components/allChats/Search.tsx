@@ -1,16 +1,15 @@
-import { Section, SearchBar } from "./searchStyles";
-
+import { Section, SearchBar, Input } from "./searchStyles";
+import { AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai'
 
 export function Search() {
   return (
     <Section >
       <SearchBar>
-        {/* <SearchIcon />
-        <Input />
-        <CollapseIcon /> */}
-        <i>s</i>
-        <input type="text"></input>
-        <i>c</i>
+        <Input>
+          <AiOutlineSearch size={20}/>
+          <input type="text" placeholder="Search or start new chat"></input>
+        </Input>
+        <AiOutlineMenu />
       </SearchBar>
     </Section>
   )

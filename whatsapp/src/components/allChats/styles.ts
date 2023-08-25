@@ -3,7 +3,12 @@ import { AiFillPlusCircle, AiFillBulb, AiOutlineMore, AiFillWechat } from 'react
 
 
 export const Section = styled.section`
-  border-right: 0.5px black solid;
+  border-right: 1px #e9edef solid;
+  flex: 0 0 30%;
+
+  @media (max-width: 768px) {
+    flex: 0 0 45%    
+  }
 `
 
 export const Header = styled.div`
@@ -39,14 +44,11 @@ export const FuncIcons = styled.div`
 
 const BaseFuncIcons = styled.div`
   height: 4rem;
-  background-color: white;
   padding: 1rem;
-
 `
 
 export const AddIcon = styled(AiFillPlusCircle)`
   ${BaseFuncIcons}
-  background-color: #3b4a54;
 `
 export const BulbIcon = styled(AiFillBulb)`
   ${BaseFuncIcons}
