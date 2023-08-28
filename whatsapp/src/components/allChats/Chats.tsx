@@ -1,20 +1,27 @@
 import { Section, Chat, ChatIcon, ChatName, ChatMessage, ChatInfo } from "./chatsStyles";
 
+interface PropsType {
+    id: number;
+    name: string;
+    img: string
+    message: string;
+    date: string;
+}
 
-export function Chats() {
+export function Chats(props: PropsType) {
     return (
         <Section>
             <Chat>
                 <ChatIcon>
-                    <img src="https://avatars.githubusercontent.com/u/31549323?v=4"></img>
+                    <img src={props.img}></img>
                 </ChatIcon>
                 <ChatInfo>
                 <ChatName>
-                    <span>Heisen</span>
-                    <span className="time">10:03 PM</span>
+                    <span>{props.name}</span>
+                    <span className="time">{props.date}</span>
                 </ChatName>
                 <ChatMessage>
-                    <span>oi, tudo bem?</span>
+                    <span>{props.message}</span>
                     <p></p>
                 </ChatMessage>
                 </ChatInfo>
