@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Section, Chat, ChatIcon, ChatName, ChatMessage, ChatInfo } from "./styles";
 
 export interface PropsType {
@@ -8,7 +8,6 @@ export interface PropsType {
     message: string;
     date: string;
     onChatClick: (chatData: PropsType) => void; // Add onChatClick to the props
-
 }
 
 export function Chats(props: PropsType) {

@@ -1,8 +1,19 @@
+// import { ChatData } from '../allChats';
 import { Section, Header, ContactInfo, Icons, Content } from './styles'
-
 import { AiOutlineSearch, AiOutlineMore } from 'react-icons/ai'
 
-export function Chat({ chatData }) {
+export interface PropsType {
+  chatData: {
+    id: number;
+    name: string;
+    img: string
+    message: string;
+    date: string;
+  }
+}
+
+export function Chat({ chatData }: PropsType) {
+  console.log(chatData)
 
   if (!chatData) {
     return <div className='empty-chat'>Select a chat to start chatting</div>;

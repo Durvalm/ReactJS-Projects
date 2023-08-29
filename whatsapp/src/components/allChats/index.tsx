@@ -8,7 +8,8 @@ import { Section, Header, FuncIcons, Profile,
 import { format, isThisWeek, isToday } from "date-fns"
 import { AddChatForm } from "./AddChatForm";
 
-interface ChatType {
+
+export interface ChatType {
     id: number;
     name: string;
     img: string
@@ -16,10 +17,17 @@ interface ChatType {
     date: Date;
 }
 
-interface AllChatsProps {
-  onChatClick: (chatData: ChatType) => void;
+export interface ChatData {
+  id: number;
+  name: string;
+  img: string
+  message: string;
+  date: string;
 }
 
+interface AllChatsProps {
+  onChatClick: (chatData: ChatData) => void;
+}
 
 export function AllChats({ onChatClick }: AllChatsProps) {
     const [chats, setChats] = useState<ChatType[]>([])

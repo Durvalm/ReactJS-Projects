@@ -1,14 +1,20 @@
 
 import { AllChats } from './components/allChats'
 import { Chat } from './components/chat'
-import { PropsType } from './components/allChats/Chats';
 
 import './App.css'
 import { useState } from 'react';
 
+export interface PropsType {
+    id: number;
+    name: string;
+    img: string
+    message: string;
+    date: string;
+}
 
 function App() {
-  const [selectedChat, setSelectedChat] = useState(null);
+  const [selectedChat, setSelectedChat] = useState<PropsType | null>(null);
 
   const handleChatClick = (chatData: PropsType) => {
     setSelectedChat(chatData);
@@ -17,7 +23,7 @@ function App() {
   return (
     <main className='wrapper'>
       <AllChats onChatClick={handleChatClick} />
-      <Chat chatData={selectedChat} />
+      {selectedChat !== null ? <Chat chatData={selectedChat} /> : null}
     </main>
   )
 }
