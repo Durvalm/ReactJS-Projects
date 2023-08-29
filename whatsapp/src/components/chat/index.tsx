@@ -13,9 +13,7 @@ export interface PropsType {
 }
 
 export function Chat({ chatData }: PropsType) {
-  console.log(chatData)
-
-  if (!chatData) {
+  if (!chatData['name']) {
     return <div className='empty-chat'>Select a chat to start chatting</div>;
   }
 

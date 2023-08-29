@@ -14,7 +14,13 @@ export interface PropsType {
 }
 
 function App() {
-  const [selectedChat, setSelectedChat] = useState<PropsType | null>(null);
+  const [selectedChat, setSelectedChat] = useState<PropsType>({
+    id: 0,
+    name: '',
+    img: '',
+    message: '',
+    date: '',
+  });
 
   const handleChatClick = (chatData: PropsType) => {
     setSelectedChat(chatData);
@@ -23,7 +29,8 @@ function App() {
   return (
     <main className='wrapper'>
       <AllChats onChatClick={handleChatClick} />
-      {selectedChat !== null ? <Chat chatData={selectedChat} /> : null}
+      <Chat chatData={selectedChat} />
+      {/* {selectedChat !== null ? <Chat chatData={selectedChat} /> : null} */}
     </main>
   )
 }
