@@ -3,7 +3,6 @@ import { AiFillPlusCircle, AiFillBulb, AiOutlineMore, AiFillWechat } from 'react
 
 
 export const Section = styled.section`
-  border-right: 1px #e9edef solid;
   flex: 0 0 30%;
 
   @media (max-width: 768px) {
@@ -12,16 +11,14 @@ export const Section = styled.section`
 `
 
 export const Header = styled.div`
-  height: auto;
-  background-color: #f0f2f5;
-`
-
-export const Icons = styled.div`
+  height: 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  background-color: #f0f2f5;
   padding: 0.7rem 1rem;
+  border-right: 1px solid #d1d7db;
+
 `
 
 export const Profile = styled.div`

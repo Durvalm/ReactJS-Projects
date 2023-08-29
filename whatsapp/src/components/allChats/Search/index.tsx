@@ -1,4 +1,4 @@
-import { Section, SearchBar, Input } from "./searchStyles";
+import { Section, SearchBar, Input } from "./styles";
 import { AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai'
 
 export function Search() {

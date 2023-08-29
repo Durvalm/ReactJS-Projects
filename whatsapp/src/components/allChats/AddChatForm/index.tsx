@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header, HeaderContent, Form } from "./addChatFormStyles"
+import { Header, HeaderContent, Form } from "./styles"
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 
 interface AddChatFormProps {
@@ -8,12 +8,12 @@ interface AddChatFormProps {
 }
 
 export function AddChatForm({ addChat, handleShowAddForm }: AddChatFormProps) {
-
     const [name, setName] = useState('')
 
     // Add chat with person name
     const handleSubmit = () => {
       addChat(name);
+      setName('')
     }
 
     // Go back when button is clicked
@@ -21,7 +21,7 @@ export function AddChatForm({ addChat, handleShowAddForm }: AddChatFormProps) {
       handleShowAddForm()
     }
 
-    return (
+    return ( 
         <>
         <Header>
           <HeaderContent>

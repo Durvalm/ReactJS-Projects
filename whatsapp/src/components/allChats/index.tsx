@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Chats } from "./Chats";
 import { Search } from "./Search";
-import { Section, Header, Icons, FuncIcons, Profile,
+import { Section, Header, FuncIcons, Profile,
         AddIcon, ChatIcon, BulbIcon, MoreIcon
 } from "./styles";
 
 import { format, isThisWeek, isToday } from "date-fns"
-import { AddChatForm } from "./addChatForm";
+import { AddChatForm } from "./AddChatForm";
 
 interface ChatType {
     id: number;
@@ -16,8 +16,12 @@ interface ChatType {
     date: Date;
 }
 
+interface AllChatsProps {
+  onChatClick: (chatData: ChatType) => void;
+}
 
-export function AllChats() {
+
+export function AllChats({ onChatClick }: AllChatsProps) {
     const [chats, setChats] = useState<ChatType[]>([])
     const [showAddChatForm, setShowAddChatForm] = useState(false)
 
@@ -30,7 +34,7 @@ export function AllChats() {
             id: chats.length + 1,
             name: chatName,
             img: "https://avatars.githubusercontent.com/u/31549323?v=4",
-            message: "",
+            message: " ",
             date: new Date(),
         };
         setShowAddChatForm(false)
@@ -41,25 +45,24 @@ export function AllChats() {
           {!showAddChatForm ? (
           <>
           <Header>
-              <Icons>
-                  <Profile>
-                      <img src="https://avatars.githubusercontent.com/u/89949017?v=4"></img>
-                  </Profile>
-                  <FuncIcons>
-                      <AddIcon size={24} color="var(--silver-500)" onClick={() => handleShowAddForm()} />
-                      <ChatIcon size={24} color="var(--silver-500)"/>
-                      <BulbIcon size={24} color="var(--silver-500)"/>
-                      <MoreIcon size={24} color="var(--silver-500)"/>
-                  </FuncIcons>
-              </Icons>
+            <Profile>
+              <img src="https://avatars.githubusercontent.com/u/89949017?v=4"></img>
+            </Profile>
+            <FuncIcons>
+              <AddIcon size={24} color="var(--silver-500)" onClick={() => handleShowAddForm()} />
+              <ChatIcon size={24} color="var(--silver-500)"/>
+              <BulbIcon size={24} color="var(--silver-500)"/>
+              <MoreIcon size={24} color="var(--silver-500)"/>
+            </FuncIcons>
           </Header>
           <Search />
-          {chats.map((chat) => (
+          {chats.slice().reverse().map((chat) => (
             <Chats key={chat.id}
               id={chat.id}
               name={chat.name}
               img={chat.img}
               message={chat.message}
+              onChatClick={onChatClick}
               date={
                 isToday(chat.date) // Check if the date is today
                 ? format(chat.date, 'HH:mm') // Display hour if today
