@@ -1,36 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Chats } from "./Chats";
 import { Search } from "./Search";
 import { Section, Header, FuncIcons, Profile,
         AddIcon, ChatIcon, BulbIcon, MoreIcon
 } from "./styles";
-
-import { format, isThisWeek, isToday } from "date-fns"
 import { AddChatForm } from "./AddChatForm";
+import { ChatsContext } from "../../contexts/ChatsContext";
 
+export function AllChats() {
+  const { chats, createChats } = useContext(ChatsContext)
 
-export interface ChatType {
-    id: number;
-    name: string;
-    img: string
-    message: string;
-    date: Date;
-}
-
-export interface ChatData {
-  id: number;
-  name: string;
-  img: string
-  message: string;
-  date: string;
-}
-
-interface AllChatsProps {
-  onChatClick: (chatData: ChatData) => void;
-}
-
-export function AllChats({ onChatClick }: AllChatsProps) {
-    const [chats, setChats] = useState<ChatType[]>([])
     const [showAddChatForm, setShowAddChatForm] = useState(false)
 
     function handleShowAddForm() {
@@ -42,11 +21,11 @@ export function AllChats({ onChatClick }: AllChatsProps) {
             id: chats.length + 1,
             name: chatName,
             img: "https://avatars.githubusercontent.com/u/31549323?v=4",
-            message: " ",
+            message: [],
             date: new Date(),
         };
         setShowAddChatForm(false)
-        setChats([...chats, newChat]);
+        createChats(newChat);
     }
     return (
         <Section>
@@ -70,14 +49,7 @@ export function AllChats({ onChatClick }: AllChatsProps) {
               name={chat.name}
               img={chat.img}
               message={chat.message}
-              onChatClick={onChatClick}
-              date={
-                isToday(chat.date) // Check if the date is today
-                ? format(chat.date, 'HH:mm') // Display hour if today
-                : isThisWeek(chat.date) // Check if the date is within the current week
-                ? format(chat.date, 'iii') // Display weekday if this week
-                : format(chat.date, 'yyyy-MM-dd')
-              } // Display full date if not today or this week}
+              date={chat.date}
             />
           ))}
           </>

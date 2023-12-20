@@ -1,39 +1,40 @@
-// import { useState } from "react";
+import { format, isThisWeek, isToday } from "date-fns";
+import { ChatType, ChatsContext } from "../../../contexts/ChatsContext";
 import { Section, Chat, ChatIcon, ChatName, ChatMessage, ChatInfo } from "./styles";
+import { useContext } from "react";
 
-export interface PropsType {
-    id: number;
-    name: string;
-    img: string
-    message: string;
-    date: string;
-    onChatClick: (chatData: PropsType) => void; // Add onChatClick to the props
-}
 
-export function Chats(props: PropsType) {
-    // const [selectedChat, setSelectedChat] = useState('')
+export function Chats(chat: ChatType) {
+    const { selectCurrentChat } = useContext(ChatsContext)
 
-    const handleOpenChat = () => {
-        props.onChatClick(props); // Call the provided onChatClick function and pass props
-    }
+    const handleChatClick = () => {
+        selectCurrentChat(chat.id);
+      };
 
     return (
         <Section>
-            <Chat onClick={handleOpenChat}>
-                <ChatIcon>
-                    <img src={props.img}></img>
+            <Chat onClick={handleChatClick}>
+            <ChatIcon>
+                    <img src={chat.img}></img>
                 </ChatIcon>
                 <ChatInfo>
                 <ChatName>
-                    <span>{props.name}</span>
-                    <span className="time">{props.date}</span>
+                    <span>{chat.name}</span>
+                    <span className="time">{
+                        isToday(chat.date) // Check if the date is today
+                        ? format(chat.date, 'HH:mm') // Display hour if today
+                        : isThisWeek(chat.date) // Check if the date is within the current week
+                        ? format(chat.date, 'iii') // Display weekday if this week
+                        : format(chat.date, 'yyyy-MM-dd')}
+                        </span>
                 </ChatName>
                 <ChatMessage>
-                    <span>{props.message}</span>
+                    {/* <span>{props.message}</span> last message */} 
+                    <span></span>
                     <p></p>
                 </ChatMessage>
                 </ChatInfo>
-            </Chat>
+            </Chat> 
         </Section>
     )
 }
