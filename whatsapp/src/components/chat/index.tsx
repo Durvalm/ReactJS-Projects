@@ -34,6 +34,8 @@ export function Chat() {
       {
         sender: 1,
         text: currentText,
+        chatId: currentChat?.id || 0,
+        date: new Date(),
       },
     ])
   }
@@ -57,7 +59,11 @@ export function Chat() {
       <Content>
         <MessagesContainer>
           {messages.map((message) => {
-            return <p key={message.text}>{message.text}</p>
+            if (message.chatId === currentChat.id) {
+              return <p key={message.date.toISOString()}>{message.text}</p>
+            } else {
+              return null
+            }
           })}
         </MessagesContainer>
 

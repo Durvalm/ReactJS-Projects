@@ -21,7 +21,7 @@ export function Chats(chat: ChatType) {
     <Section>
       <Chat onClick={handleChatClick}>
         <ChatIcon>
-          <img src={chat.img}></img>
+          <img src={chat.img} alt="Profile Picture"></img>
         </ChatIcon>
         <ChatInfo>
           <ChatName>

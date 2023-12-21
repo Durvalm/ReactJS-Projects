@@ -40,7 +40,10 @@ export function AllChats() {
         <>
           <Header>
             <Profile>
-              <img src="https://avatars.githubusercontent.com/u/89949017?v=4"></img>
+              <img
+                src="https://avatars.githubusercontent.com/u/89949017?v=4"
+                alt="Profile Picture"
+              ></img>
             </Profile>
             <FuncIcons>
               <AddIcon

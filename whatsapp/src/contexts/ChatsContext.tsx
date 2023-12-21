@@ -3,6 +3,8 @@ import { ReactNode, createContext, useState } from 'react'
 export interface Messages {
   sender: 1 | 2
   text: string
+  chatId: number
+  date: Date
 }
 
 export interface ChatType {
@@ -22,7 +24,6 @@ interface ChatsContextType {
   selectedChat?: SelectedChatType
   createChats: (newChat: ChatType) => void
   selectCurrentChat: (chatId: number) => void
-  // updateChatMessages: (currentChat: ChatType, newMessage: string)
 }
 
 interface ChatsContextProviderProps {
@@ -35,24 +36,6 @@ export function ChatsContextProvider({ children }: ChatsContextProviderProps) {
   const [chats, setChats] = useState<ChatType[]>([])
 
   const [selectedChat, setSelectedChat] = useState<SelectedChatType>()
-
-  // function updateChatMessages(currentChat: ChatType, newMessage: string) {
-  //   const chatIndex = chats.findIndex((chat) => chat.id === currentChat.id);
-
-  //   if (chatIndex !== -1) {
-  //     const updatedChat = {
-  //       ...chats[chatIndex],
-  //       message: [...chats[chatIndex].message, { text: newMessage, sender: 1 }],
-  //       date: new Date(),
-  //     };
-
-  //     setChats((chats) => {
-  //       return (
-  //         [...chats, updatedChat]
-  //       )
-  //     });
-  //   }
-  // }
 
   function createChats(newChat: ChatType) {
     setChats([...chats, newChat])
@@ -68,7 +51,7 @@ export function ChatsContextProvider({ children }: ChatsContextProviderProps) {
         chats,
         createChats,
         selectedChat,
-        selectCurrentChat /* updateChatMessages */,
+        selectCurrentChat,
       }}
     >
       {children}
