@@ -10,6 +10,7 @@ import {
   ChatIcon,
   BulbIcon,
   MoreIcon,
+  EmptyListContainer,
 } from './styles'
 import { AddChatForm } from './AddChatForm'
 import { ChatsContext } from '../../contexts/ChatsContext'
@@ -57,19 +58,25 @@ export function AllChats() {
             </FuncIcons>
           </Header>
           <Search />
-          {chats
-            .slice()
-            .reverse()
-            .map((chat) => (
-              <Chats
-                key={chat.id}
-                id={chat.id}
-                name={chat.name}
-                img={chat.img}
-                message={chat.message}
-                date={chat.date}
-              />
-            ))}
+          {chats.length >= 1 ? (
+            chats
+              .slice()
+              .reverse()
+              .map((chat) => (
+                <Chats
+                  key={chat.id}
+                  id={chat.id}
+                  name={chat.name}
+                  img={chat.img}
+                  message={chat.message}
+                  date={chat.date}
+                />
+              ))
+          ) : (
+            <EmptyListContainer>
+              <p>Click &quot;+&quot; to add a chat</p>
+            </EmptyListContainer>
+          )}
         </>
       ) : (
         <AddChatForm addChat={addChat} handleShowAddForm={handleShowAddForm} />

@@ -16,6 +16,7 @@ import { BsEmojiSmile, BsMicFill } from 'react-icons/bs'
 import { MdSend } from 'react-icons/md'
 
 import { ChatsContext, Messages } from '../../contexts/ChatsContext'
+import { EmptyChatContainer } from './EmptyChatContainer'
 
 export function Chat() {
   const { chats, selectedChat } = useContext(ChatsContext)
@@ -42,7 +43,7 @@ export function Chat() {
   }
 
   if (!currentChat?.name) {
-    return <div className="empty-chat">Select a chat to start chatting</div>
+    return <EmptyChatContainer />
   }
   return (
     <Section>

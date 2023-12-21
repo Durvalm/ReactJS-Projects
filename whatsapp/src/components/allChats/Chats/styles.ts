@@ -5,7 +5,7 @@ export const Section = styled.section`
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
 
-export const Chat = styled.div`
+export const Chat = styled.div<{ isSelected: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,6 +13,7 @@ export const Chat = styled.div`
   height: 4rem;
   padding: 1rem;
   gap: 1rem;
+  background-color: ${(props) => (props.isSelected ? '#f0f2f5' : 'white')};
 `
 
 export const ChatIcon = styled.div`

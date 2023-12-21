@@ -11,7 +11,7 @@ import {
 import { useContext } from 'react'
 
 export function Chats(chat: ChatType) {
-  const { selectCurrentChat } = useContext(ChatsContext)
+  const { selectCurrentChat, selectedChat } = useContext(ChatsContext)
 
   const handleChatClick = () => {
     selectCurrentChat(chat.id)
@@ -19,7 +19,7 @@ export function Chats(chat: ChatType) {
 
   return (
     <Section>
-      <Chat onClick={handleChatClick}>
+      <Chat onClick={handleChatClick} isSelected={chat.id === selectedChat?.id}>
         <ChatIcon>
           <img src={chat.img} alt="Profile Picture"></img>
         </ChatIcon>

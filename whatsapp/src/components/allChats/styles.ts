@@ -58,3 +58,14 @@ export const ChatIcon = styled(AiFillWechat)`
 export const MoreIcon = styled(AiOutlineMore)`
   ${BaseFuncIcons}
 `
+
+export const EmptyListContainer = styled.div`
+  width: 100%;
+  height: calc(100% - 6.7rem);
+  color: #41525d;
+  font-size: 0.875rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
