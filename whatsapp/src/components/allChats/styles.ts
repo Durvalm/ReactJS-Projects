@@ -1,24 +1,27 @@
-import { styled } from "styled-components";
-import { AiFillPlusCircle, AiFillBulb, AiOutlineMore, AiFillWechat } from 'react-icons/ai'
-
+import { styled } from 'styled-components'
+import {
+  AiFillPlusCircle,
+  AiFillBulb,
+  AiOutlineMore,
+  AiFillWechat,
+} from 'react-icons/ai'
 
 export const Section = styled.section`
   flex: 0 0 30%;
 
   @media (max-width: 768px) {
-    flex: 0 0 45%    
+    flex: 0 0 45%;
   }
 `
 
 export const Header = styled.div`
-  height: 3.5rem;
+  height: 3.7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #f0f2f5;
   padding: 0.7rem 1rem;
   border-right: 1px solid #d1d7db;
-
 `
 
 export const Profile = styled.div`
@@ -36,7 +39,6 @@ export const Profile = styled.div`
 export const FuncIcons = styled.div`
   display: flex;
   gap: 1.5rem;
-
 `
 
 const BaseFuncIcons = styled.div`

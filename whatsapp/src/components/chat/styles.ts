@@ -1,12 +1,12 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const Section = styled.section`
   width: 100%;
+  overflow: hidden;
 `
 
 export const Header = styled.div`
-  height: 3.5rem;
+  height: 3.7rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -35,6 +35,7 @@ export const ContactInfo = styled.div`
 export const Icons = styled.div`
   display: flex;
   gap: 1rem;
+  color: #54656f;
 `
 
 export const Profile = styled.div`
@@ -52,20 +53,40 @@ export const Content = styled.div`
   border-left: 0.5px solid #e9edef;
   background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
   background-size: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
-export const MsgIcons = styled.div`
+export const MessagesContainer = styled.div``
 
+export const MsgIcons = styled.div`
+  display: flex;
+  gap: 1rem;
+  color: #54656f;
 `
 
 export const MessageBar = styled.div`
+  height: 3.7rem;
+  background-color: #f0f2f5;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1.5rem;
 `
 
 export const Input = styled.div`
+  display: flex;
+  flex: 1;
 
-`
-
-export const Microphone = styled.div`
-
+  input {
+    border: none;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    outline: none;
+  }
 `
