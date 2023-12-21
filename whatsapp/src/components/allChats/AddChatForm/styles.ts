@@ -4,19 +4,7 @@ export const Header = styled.div`
   height: 6rem;
   background-color: #008069;
   color: white;
-  font-family:
-    SF Pro Text,
-    SF Pro Icons,
-    system,
-    -apple-system,
-    system-ui,
-    BlinkMacSystemFont,
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    Lucida Grande,
-    Kohinoor Devanagari,
-    sans-serif;
+  font-family: sans-serif;
   display: flex;
   align-items: end;
 
@@ -57,7 +45,9 @@ export const Form = styled.div`
 
   input {
     width: 100%;
+    padding: 0.7rem;
     border: 1px solid black;
     border-radius: 4px;
+    outline: none;
   }
 `

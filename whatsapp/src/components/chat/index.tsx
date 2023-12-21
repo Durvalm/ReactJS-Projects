@@ -38,6 +38,7 @@ export function Chat() {
         date: new Date(),
       },
     ])
+    setCurrentText('')
   }
 
   if (!currentChat?.name) {

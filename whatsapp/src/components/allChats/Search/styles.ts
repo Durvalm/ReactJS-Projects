@@ -31,6 +31,7 @@ export const Input = styled.div`
     border: none;
     background-color: #f0f2f5;
     width: 100%;
+    outline: none;
   }
 
   &:first-child {
