@@ -57,9 +57,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 0.5rem;
 `
-
-export const MessagesContainer = styled.div``
 
 export const MsgIcons = styled.div`
   display: flex;
@@ -90,3 +89,37 @@ export const Input = styled.div`
     outline: none;
   }
 `
+
+export const MessagesContainer = styled.div`
+  padding: 0.1rem 4rem;
+  display: flex;
+`
+
+export const Text = styled.div`
+  background-color: white;
+  color: #111b21;
+  border: 1px solid white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  max-width: 75%;
+  word-wrap: break-word;
+
+  p {
+    flex: 1;
+    max-width: 90%;
+    padding: 0.4rem;
+    font-size: 0.875rem;
+  }
+`
+
+export const MessageInfo = styled.div`
+  color: #667781;
+  font-size: 0.6875rem;
+  align-self: flex-end;
+  padding-right: 0.2rem;
+  white-space: nowrap;
+`
+
+export const ViewSymbol = styled.div``

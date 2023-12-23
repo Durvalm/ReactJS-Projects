@@ -9,6 +9,9 @@ import {
   MsgIcons,
   Input,
   MessagesContainer,
+  MessageInfo,
+  Text,
+  ViewSymbol,
 } from './styles'
 
 import { AiOutlineSearch, AiOutlineMore, AiOutlinePlus } from 'react-icons/ai'
@@ -59,15 +62,35 @@ export function Chat() {
       </Header>
 
       <Content>
-        <MessagesContainer>
+        <div>
           {messages.map((message) => {
             if (message.chatId === currentChat.id) {
-              return <p key={message.date.toISOString()}>{message.text}</p>
+              return (
+                <MessagesContainer key={message.date.toISOString()}>
+                  <Text>
+                    <p>{message.text}</p>
+                    <MessageInfo>
+                      <time>
+                        {message.date.toLocaleTimeString('en-US', {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                          hour12: true,
+                        })}
+                      </time>
+                      <ViewSymbol />
+                    </MessageInfo>
+                  </Text>
+                  {/* <MessageInfo>
+                    <time>{message.date.toDateString()}</time>
+                    <ViewSymbol />
+                  </MessageInfo> */}
+                </MessagesContainer>
+              )
             } else {
               return null
             }
           })}
-        </MessagesContainer>
+        </div>
 
         <MessageBar>
           <MsgIcons>

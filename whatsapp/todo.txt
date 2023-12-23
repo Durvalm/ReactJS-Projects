@@ -1,0 +1,6 @@
+- Implement Messages Design
+- Message Design based on Sender
+
+- Update Chat date based on last message date instead of chat startDate  (in ChatList)
+- Display last message on ChatList (under contact name)
+
