@@ -29,7 +29,7 @@ export function AllChats() {
       id: chats.length + 1,
       name: chatName,
       img: 'https://avatars.githubusercontent.com/u/31549323?v=4',
-      message: [],
+      lastMessage: undefined,
       date: new Date(),
     }
     setShowAddChatForm(false)
@@ -68,7 +68,7 @@ export function AllChats() {
                   id={chat.id}
                   name={chat.name}
                   img={chat.img}
-                  message={chat.message}
+                  lastMessage={chat.lastMessage}
                   date={chat.date}
                 />
               ))

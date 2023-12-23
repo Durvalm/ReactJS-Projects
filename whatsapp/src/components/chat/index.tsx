@@ -18,29 +18,16 @@ import { AiOutlineSearch, AiOutlineMore, AiOutlinePlus } from 'react-icons/ai'
 import { BsEmojiSmile, BsMicFill } from 'react-icons/bs'
 import { MdSend } from 'react-icons/md'
 
-import { ChatsContext, Messages } from '../../contexts/ChatsContext'
+import { ChatsContext } from '../../contexts/ChatsContext'
 import { EmptyChatContainer } from './EmptyChatContainer'
 
 export function Chat() {
-  const { chats, selectedChat } = useContext(ChatsContext)
-
-  const currentChat = chats.find((chat) => chat.id === selectedChat?.id)
+  const { currentChat, messages, addNewMessage } = useContext(ChatsContext)
 
   const [currentText, setCurrentText] = useState('')
 
-  const [messages, setMessages] = useState<Messages[]>(
-    currentChat?.message || [],
-  )
-
   function handleSendMessage() {
-    setMessages([
-      ...messages,
-      {
-        text: currentText,
-        chatId: currentChat?.id || 0,
-        date: new Date(),
-      },
-    ])
+    addNewMessage(currentText)
     setCurrentText('')
   }
 

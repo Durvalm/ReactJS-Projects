@@ -17,6 +17,9 @@ export function Chats(chat: ChatType) {
     selectCurrentChat(chat.id)
   }
 
+  const chatDate = chat.lastMessage ? chat.lastMessage.date : chat.date
+  const chatText = chat.lastMessage ? chat.lastMessage.text : ''
+
   return (
     <Section>
       <Chat onClick={handleChatClick} isSelected={chat.id === selectedChat?.id}>
@@ -27,17 +30,15 @@ export function Chats(chat: ChatType) {
           <ChatName>
             <span>{chat.name}</span>
             <span className="time">
-              {isToday(chat.date) // Check if the date is today
-                ? format(chat.date, 'HH:mm') // Display hour if today
-                : isThisWeek(chat.date) // Check if the date is within the current week
-                  ? format(chat.date, 'iii') // Display weekday if this week
-                  : format(chat.date, 'yyyy-MM-dd')}
+              {isToday(chatDate) // Check if the date is today
+                ? format(chatDate, 'HH:mm') // Display hour if today
+                : isThisWeek(chatDate) // Check if the date is within the current week
+                  ? format(chatDate, 'iii') // Display weekday if this week
+                  : format(chatDate, 'yyyy-MM-dd')}
             </span>
           </ChatName>
           <ChatMessage>
-            {/* <span>{props.message}</span> last message */}
-            <span></span>
-            <p></p>
+            <span>{chatText}</span>
           </ChatMessage>
         </ChatInfo>
       </Chat>
