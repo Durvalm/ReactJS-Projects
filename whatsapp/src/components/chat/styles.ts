@@ -90,19 +90,23 @@ export const Input = styled.div`
   }
 `
 
-export const MessagesContainer = styled.div`
+export const MessagesContainer = styled.div<{ messageIndex: number }>`
   padding: 0.1rem 4rem;
   display: flex;
+
+  justify-content: ${(props) =>
+    props.messageIndex % 2 === 0 ? 'end' : 'start'};
 `
 
-export const Text = styled.div`
-  background-color: white;
+export const Text = styled.div<{ messageIndex: number }>`
+  background-color: ${(props) =>
+    props.messageIndex % 2 === 0 ? '#e7fce3' : 'white'};
   color: #111b21;
-  border: 1px solid white;
+  border: 1px solid transparent;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
-  gap: 0.4rem;
+  gap: 0.3rem;
   max-width: 75%;
   word-wrap: break-word;
 
@@ -118,7 +122,8 @@ export const MessageInfo = styled.div`
   color: #667781;
   font-size: 0.6875rem;
   align-self: flex-end;
-  padding-right: 0.2rem;
+  padding-right: 0.3rem;
+  padding-bottom: 0.1rem;
   white-space: nowrap;
 `
 

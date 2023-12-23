@@ -1,7 +1,6 @@
 import { ReactNode, createContext, useState } from 'react'
 
 export interface Messages {
-  sender: 1 | 2
   text: string
   chatId: number
   date: Date

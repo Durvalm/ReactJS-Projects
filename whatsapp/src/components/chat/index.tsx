@@ -36,7 +36,6 @@ export function Chat() {
     setMessages([
       ...messages,
       {
-        sender: 1,
         text: currentText,
         chatId: currentChat?.id || 0,
         date: new Date(),
@@ -63,11 +62,14 @@ export function Chat() {
 
       <Content>
         <div>
-          {messages.map((message) => {
+          {messages.map((message, index) => {
             if (message.chatId === currentChat.id) {
               return (
-                <MessagesContainer key={message.date.toISOString()}>
-                  <Text>
+                <MessagesContainer
+                  key={message.date.toISOString()}
+                  messageIndex={index}
+                >
+                  <Text messageIndex={index}>
                     <p>{message.text}</p>
                     <MessageInfo>
                       <time>
@@ -80,10 +82,6 @@ export function Chat() {
                       <ViewSymbol />
                     </MessageInfo>
                   </Text>
-                  {/* <MessageInfo>
-                    <time>{message.date.toDateString()}</time>
-                    <ViewSymbol />
-                  </MessageInfo> */}
                 </MessagesContainer>
               )
             } else {
